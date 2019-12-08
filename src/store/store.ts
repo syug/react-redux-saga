@@ -5,7 +5,7 @@ import reducer from './reducer';
 import githubSaga from './github/sagas';
 
 export interface State {
-  count: number;
+  count: CountState;
 }
 
 // redux-saga

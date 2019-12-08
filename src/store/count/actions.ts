@@ -2,25 +2,25 @@
  * Action types
  */
 
-export const CounterActionTypes = {
+export const CountActionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
 } as const;
 
-export type CounterActionType = keyof typeof CounterActionTypes;
+export type CountActionType = keyof typeof CountActionTypes;
 
 /**
  * Action creators
  */
 
 const increment = () => ({
-  type: CounterActionTypes.INCREMENT,
+  type: CountActionTypes.INCREMENT,
 });
 const decrement = () => ({
-  type: CounterActionTypes.DECREMENT,
+  type: CountActionTypes.DECREMENT,
 });
 
-export type CounterAction =
+export type CountAction =
   | ReturnType<typeof increment>
   | ReturnType<typeof decrement>;
 

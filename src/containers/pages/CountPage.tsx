@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Button, Typography } from '@material-ui/core';
-import { increment, decrement } from 'store/actions';
+import { increment, decrement } from 'store/count/actions';
 import { fetchUser } from 'store/github/actions';
 import { State } from 'store';
 

@@ -1,19 +1,8 @@
 import { combineReducers } from 'redux';
-import { CounterActionTypes, CounterAction } from './actions';
-
-const count = (state: number = 0, action: CounterAction) => {
-  switch (action.type) {
-    case CounterActionTypes.INCREMENT:
-      return state + 1;
-    case CounterActionTypes.DECREMENT:
-      return state - 1;
-    default:
-      return state;
-  }
-};
+import { countReducer } from './count';
 
 const reducer = combineReducers({
-  count,
+  count: countReducer,
 });
 
 export default reducer;
