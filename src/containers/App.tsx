@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid, Button, Typography } from '@material-ui/core';
-import { increment, decrement } from '../store/actions';
+import { increment, decrement } from 'store/actions';
+import { State } from 'store';
 
 interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
   const dispatch = useDispatch();
-  // const count = useSelector(state => state.count);
-  const count = 0;
+  const count: number = useSelector<State, number>(state => state.count);
 
   const dispatchIncrement = React.useCallback(() => {
     dispatch(increment());
