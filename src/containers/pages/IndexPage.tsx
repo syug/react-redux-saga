@@ -1,16 +1,23 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Button } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+import { Box, Button, Typography } from '@material-ui/core';
+import { State } from 'store';
 
 const IndexPage = () => {
+  const count: number = useSelector<State, number>(state => state.count);
+
   return (
-    <Grid container>
-      <Grid item xs>
+    <React.Fragment>
+      <Box mb={3}>
+        <Typography>Current count: {count}</Typography>
+      </Box>
+      <Box>
         <Link to="count">
-          <Button color="primary">Count</Button>
+          <Button color="primary">Go to Count</Button>
         </Link>
-      </Grid>
-    </Grid>
+      </Box>
+    </React.Fragment>
   );
 };
 

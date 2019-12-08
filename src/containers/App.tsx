@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container } from '@material-ui/core';
 import { Route, Switch } from 'react-router';
+import { GlobalNav } from 'containers/navigations';
 import { IndexPage, CountPage } from 'containers/pages';
 
 interface AppProps {}
@@ -8,6 +9,7 @@ interface AppProps {}
 const App: React.FC<AppProps> = () => {
   return (
     <Container>
+      <GlobalNav />
       <Switch>
         <Route exact path="/count">
           <CountPage />
