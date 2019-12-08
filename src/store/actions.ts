@@ -1,9 +1,17 @@
+/**
+ * Action types
+ */
+
 export const CounterActionTypes = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
-};
+} as const;
 
 export type CounterActionType = keyof typeof CounterActionTypes;
+
+/**
+ * Action creators
+ */
 
 const increment = () => ({
   type: CounterActionTypes.INCREMENT,

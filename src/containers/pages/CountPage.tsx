@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Button, Typography } from '@material-ui/core';
 import { increment, decrement } from 'store/actions';
+import { fetchUser } from 'store/github/actions';
 import { State } from 'store';
 
 const CountPage = () => {
@@ -16,6 +17,10 @@ const CountPage = () => {
     dispatch(decrement());
   }, [dispatch]);
 
+  const dispatchFetchUser = React.useCallback(() => {
+    dispatch(fetchUser(count));
+  }, [count, dispatch]);
+
   return (
     <Grid container>
       <Grid item xs>
@@ -27,6 +32,11 @@ const CountPage = () => {
         </Button>
         <Button variant="contained" onClick={dispatchDecrement}>
           Decrement
+        </Button>
+      </Grid>
+      <Grid item xs={12}>
+        <Button color="primary" variant="contained" onClick={dispatchFetchUser}>
+          Fetch user
         </Button>
       </Grid>
     </Grid>
