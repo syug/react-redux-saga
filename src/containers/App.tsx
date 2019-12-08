@@ -7,7 +7,8 @@ interface AppProps {}
 
 const App: React.FC<AppProps> = () => {
   const dispatch = useDispatch();
-  const count = useSelector(state => state.count);
+  // const count = useSelector(state => state.count);
+  const count = 0;
 
   const dispatchIncrement = React.useCallback(() => {
     dispatch(increment());
