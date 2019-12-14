@@ -3,9 +3,12 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './reducer';
 import githubSaga from './github/sagas';
+import { CountState } from './count/state';
+import { GithubState } from './github/reducer';
 
 export interface State {
   count: CountState;
+  github: GithubState;
 }
 
 // redux-saga
