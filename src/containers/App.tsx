@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Container } from '@material-ui/core';
 import { Route, Switch } from 'react-router';
 import { GlobalNav } from 'containers/navigations';
-import { IndexPage, CountPage } from 'containers/pages';
+import { IndexPage, CountPage, GithubPage } from 'containers/pages';
 
 interface AppProps {}
 
@@ -13,6 +13,9 @@ const App: React.FC<AppProps> = () => {
       <Switch>
         <Route exact path="/count">
           <CountPage />
+        </Route>
+        <Route exact path="/github">
+          <GithubPage />
         </Route>
         <Route default path="/">
           <IndexPage />

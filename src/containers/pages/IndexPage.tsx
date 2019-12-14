@@ -16,6 +16,9 @@ const IndexPage = () => {
         <Link to="count">
           <Button color="primary">Go to Count</Button>
         </Link>
+        <Link to="github">
+          <Button color="primary">Go to Github</Button>
+        </Link>
       </Box>
     </React.Fragment>
   );
