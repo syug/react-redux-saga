@@ -5,3 +5,6 @@ export const API_CONFIG = {
 
 export const getMembersEndpoint = (organizationName: string): string =>
   `/orgs/${organizationName}/members`;
+
+export const getReposEndpoint = (organizationName: string): string =>
+  `/orgs/${organizationName}/repos`;

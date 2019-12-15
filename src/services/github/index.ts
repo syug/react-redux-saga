@@ -1,1 +1,1 @@
-export { default as getGithubMembers } from './getGithubMembers';
+export * from './api';

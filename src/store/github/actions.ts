@@ -1,4 +1,4 @@
-import { GithubUser } from 'services/github/getGithubMembers';
+import { GithubUser, GithubRepo } from 'services/github/api';
 import { AxiosError } from 'axios';
 
 /**
@@ -9,6 +9,9 @@ export const githubActionTypes = {
   GET_MEMBERS_STARTED: 'GET_MEMBERS_STARTED',
   GET_MEMBERS_SUCCEEDED: 'GET_MEMBERS_SUCCEEDED',
   GET_MEMBERS_FAILED: 'GET_MEMBERS_FAILED',
+  GET_REPOS_STARTED: 'GET_REPOS_STARTED',
+  GET_REPOS_SUCCEEDED: 'GET_REPOS_SUCCEEDED',
+  GET_REPOS_FAILED: 'GET_REPOS_FAILED',
 } as const;
 export type GithubActionType = keyof typeof githubActionTypes;
 
@@ -32,7 +35,26 @@ export const getGithubMembers = {
   }),
 };
 
+export const getGithubRepos = {
+  start: (organizationName: string) => ({
+    type: githubActionTypes.GET_REPOS_STARTED,
+    payload: { organizationName },
+  }),
+  succeeded: (repos: GithubRepo[]) => ({
+    type: githubActionTypes.GET_REPOS_SUCCEEDED,
+    payload: { repos },
+  }),
+  failed: (error: AxiosError) => ({
+    type: githubActionTypes.GET_REPOS_FAILED,
+    payload: { error },
+    error: true,
+  }),
+};
+
 export type GithubAction =
   | ReturnType<typeof getGithubMembers.start>
   | ReturnType<typeof getGithubMembers.succeeded>
-  | ReturnType<typeof getGithubMembers.failed>;
+  | ReturnType<typeof getGithubMembers.failed>
+  | ReturnType<typeof getGithubRepos.start>
+  | ReturnType<typeof getGithubRepos.succeeded>
+  | ReturnType<typeof getGithubRepos.failed>;
